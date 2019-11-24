@@ -6,6 +6,8 @@ const PORT = 4000;
 // to my understanding is cors works in the shadows fetching data from the database
 // like get and post statements
 const cors = require('cors');
+const mongoose = require('mongoose');
+const config = require('./db.js');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(

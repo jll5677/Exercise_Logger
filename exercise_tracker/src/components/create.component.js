@@ -42,6 +42,8 @@ export default class Create extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+        // don't really need this line below
+        // eslint-disable-next-line
         console.log('The values are ${this.state.Exercise_name}, ${this.state.Exercise_weight}, ${this.state.Exercise_set}, ${this.state.Exercise_rep}');
         this.setState({
             Exercise_name: '',

@@ -1,4 +1,4 @@
-const mongose = requre('mongoose');
+const mongoose = requre('mongoose');
 const Schema = mongose.Schema;
 
 let Exercise = new Schema({
