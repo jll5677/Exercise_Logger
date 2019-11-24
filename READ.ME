@@ -7,3 +7,10 @@ Instructions to start application
 		nodemon server in /exercise_tracker/api
 	Starting MongoDB
 		mongod
+Things to look out for
+	Making sure you close out mongodb, check if mongodb is running
+		sudo lsof -i -P -n | grep LISTEN
+	Shutting down mongodb
+		lsof -i -P -n | grep LISTEN
+		kill proccess-id
+		
