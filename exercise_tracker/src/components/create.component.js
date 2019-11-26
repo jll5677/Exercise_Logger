@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Create extends Component {
     constructor(props) {
         super(props);
         this.onChangeExerciseName = this.onChangeExerciseName.bind(this);
-        this.onChangeExerciseWeight = this.onChangeExerciseName.bind(this);
+        this.onChangeExerciseWeight = this.onChangeExerciseWeight.bind(this);
         this.onChangeExerciseSet = this.onChangeExerciseSet.bind(this);
         this.onChangeExerciseRep = this.onChangeExerciseRep.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             Exercise_name: '',
@@ -42,9 +44,18 @@ export default class Create extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        // don't really need this line below
-        // eslint-disable-next-line
-        console.log('The values are ${this.state.Exercise_name}, ${this.state.Exercise_weight}, ${this.state.Exercise_set}, ${this.state.Exercise_rep}');
+
+        const obj = {
+            Exercise_name: this.state.Exercise_name,
+            Exercise_weight: this.state.Exercise_weight,
+            Exercise_set: this.state.Exercise_set,
+            Exercise_rep: this.state.Exercise_rep
+        };
+
+        // uses axios to push data into database
+        axios.post('http://localhost:4000/exercise/add', obj)
+            .then( res => console.log(res.data));
+
         this.setState({
             Exercise_name: '',
             Exercise_weight: '',

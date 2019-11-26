@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div classname="container">
+        <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to={'/'} className="navbar-brand">Exercise Tracker</Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
