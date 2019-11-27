@@ -1,4 +1,4 @@
-const express= require('express');
+const express = require('express');
 const exerciseRoutes = express.Router();
 
 let Exercise = require('./exercise.model');
@@ -11,16 +11,16 @@ exerciseRoutes.route('/add').post(function (req, res) {
         })
         .catch(err => {
             res.status(400).send("unable to save to database");
-        })
+        });
 });
 
 // get route
 exerciseRoutes.route('/').get(function (req, res) {
-    Exercise.find(function(err, exercise){
+    Exercise.find(function(err, exercises){
         if(err){
             console.log(err);
         } else {
-            res.json(exercise);
+            res.json(exercises);
         }
     });
 });
@@ -28,14 +28,14 @@ exerciseRoutes.route('/').get(function (req, res) {
 // edit route
 exerciseRoutes.route('/edit/:id').get(function (req, res) {
     let id = req.params.id;
-    Exercise.findById(id, function (err , business){
+    Exercise.findById(id, function (err , exercise){
         res.json(exercise);
     });
 });
 
 // update route
 exerciseRoutes.route('/update/:id').get(function (req, res){
-    Exercise.findByID(req.params.id, function(err, business){
+    Exercise.findByID(req.params.id, function(err, exercise){
         if(!exercise)
             res.status(404).send("data is not found");
         else {

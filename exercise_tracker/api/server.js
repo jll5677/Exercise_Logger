@@ -7,11 +7,11 @@ const PORT = 4000;
 // like get and post statements
 const cors = require('cors');
 const mongoose = require('mongoose');
-const config = require('./db.js');
-const exerciseRoutes = require('./exercise.route');
+const config = require('./DB.js');
+const exerciseRoute = require('./exercise.route');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true }).then(
     () => {console.log('Database is connected')},
     err => {console.log('Can not connect to database server because' + err )}
 );
@@ -20,7 +20,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/exercise', exerciseRoutes);
+app.use('/exercise', exerciseRoute);
 
 app.listen(PORT, function(){
     console.log('The server is running on Port:', PORT);
