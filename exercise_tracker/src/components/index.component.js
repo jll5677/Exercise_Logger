@@ -30,15 +30,15 @@ export default class Index extends Component {
             <div>
                 <h3 align="center">Exercise List</h3>
                 <table className="table table-striped" style={{ marginTop: 20 }}>
-                    <thread>
+                    <thead>
                         <tr>
                             <th>Name</th>
                             <th>Weight</th>
                             <th>Sets</th>
                             <th>Reps</th>
-                            <th colSpan ="2">Action</th>
+                            <th colSpan="2">Action</th>
                         </tr>
-                    </thread>
+                    </thead>
                     <tbody>
                         { this.tabRow() }
                     </tbody>
