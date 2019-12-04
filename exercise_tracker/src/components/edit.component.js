@@ -36,25 +36,25 @@ export default class Edit extends Component {
     onChangeExerciseName(e) {
         this.setState({
             exercise_name: e.target.value
-        });
+        })
     }
 
     onChangeExerciseWeight(e) {
         this.setState({
             exercise_weight: e.target.value
-        });
+        })
     }
 
     onChangeExerciseSet(e) {
         this.setState({
             exercise_set: e.target.value
-        });
+        })
     }
 
     onChangeExerciseRep(e) {
         this.setState({
             exercise_rep: e.target.value
-        });
+        })
     }
 
     onSubmit(e) {
@@ -66,9 +66,10 @@ export default class Edit extends Component {
             exercise_rep: this.state.exercise_rep
         };
         axios.post('http://localhost:4000/exercise/update/'+this.props.match.params.id, obj)
-            .then(res => console.log(res.data));
-
-        this.props.history.push('/index');
+            .then(res => {
+                console.log(res.data);
+                this.props.history.push('/index');
+            });
     }
 
     render() {

@@ -34,8 +34,8 @@ exerciseRoutes.route('/edit/:id').get(function (req, res) {
 });
 
 // update route
-exerciseRoutes.route('/update/:id').get(function (req, res){
-    Exercise.findByID(req.params.id, function(err, exercise){
+exerciseRoutes.route('/update/:id').post(function (req, res){
+    Exercise.findById(req.params.id, function(err, exercise){
         if(!exercise)
             res.status(404).send("data is not found");
         else {
